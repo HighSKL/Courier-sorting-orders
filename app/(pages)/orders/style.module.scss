@@ -1,0 +1,50 @@
+.wrapper{
+    display: flex;
+    flex-flow: column;
+    gap: 10px;
+}
+
+.window{
+    min-height: 15vh;
+}
+
+.widow__header{
+    width: 97%;
+    height: 15vh;
+    margin: 0 auto;
+    border-radius: 20px;
+    background-color: rgb(36, 36, 36);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 34px;
+    box-sizing: border-box;
+    position: relative;
+    cursor: pointer;
+}
+
+.header__icon{
+    font-size: 44px;
+}
+
+.header__drop-menu{
+    font-size: 24px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.header__info{
+    display: flex;
+    gap: 30px;
+}
+
+.drop-menu{
+    width: 97%;
+    height: auto;
+    min-height: 20vh;
+    background-color: rgb(49, 49, 49);
+    margin: 0 auto;
+    margin-top: -50px;
+    border-radius: 20px;
+    transition: .5s ease;
+}
