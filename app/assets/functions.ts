@@ -38,3 +38,5 @@ export const formatNumber = (phoneNumber: string) => {
 
     return formatNum
 }
+
+export const random = (max: number = 9999) => Math.floor(Math.random()*max)
