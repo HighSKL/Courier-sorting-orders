@@ -50,13 +50,13 @@ function Orders() {
     })
 
     const dragStartEventHandler = ( event: any, order: OrderType ) => {
-        alert(order)
         event.target.style.opacity = '50%' 
+        window.navigator.vibrate(100)
     }
 
     const dragEndEventHandler = ( event: any, order: OrderType ) => {
         event.preventDefault()
-        event.target.style.opacity = '100%' 
+        event.target.style.opacity = '100%'
     }
 
 
@@ -82,6 +82,7 @@ function Orders() {
     const renderOrders = orders.unallocated.map((order)=>(
         <div className={style.order} style={{background: order.color}} draggable
             onTouchStart={(e)=>dragStartEventHandler(e, order)}
+            onTouchEnd={(e)=>dragEndEventHandler(e, order)}
             // onDragStart={(e)=>dragStartEventHandler(e, order)}
             // onDragEnd={(e)=>dragEndEventHandler(e, order)}
         >
