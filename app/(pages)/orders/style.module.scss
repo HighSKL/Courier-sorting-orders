@@ -68,19 +68,29 @@
     font-size: 17px;
 }
 
-.orders-container{
+.orders-container, .drop-menu{
     display: flex;
     gap: 5px;
     margin-top: 15px;
     flex-wrap: wrap;
 }
 
+.drop-menu{
+    margin-top: -50px;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-top: 50px;
+    padding-left: 34px;
+    padding-right: 34px;
+}
+
 .order{
     padding: 6px 12px;
     border-radius: 1em;
     width: auto;
-    height: auto;
+    height: 20px;
     cursor: pointer;
+    transition: .3s ease;
 }
 
 .add-order__button{
@@ -98,3 +108,7 @@
     font-weight: 400;
     font-size: 16px;
 }
+
+
+
+
