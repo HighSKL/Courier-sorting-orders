@@ -51,6 +51,6 @@ const reducer = createSlice({
 })
 
 export const { addNewOrder, addInCar, addAtGatherer, addInCart, deleteValueFromUnallocated, deleteValueFromGatherer,
-    deleteValueFromCar, deleteValueFromCart} = reducer.actions
+    deleteValueFromCar, deleteValueFromCart } = reducer.actions
 
 export const OrderReducer = reducer.reducer
