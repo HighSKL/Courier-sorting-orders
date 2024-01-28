@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     orders: {
-        unallocated: [{id: 1, color:'#c82e2e', orderNumber: '1H23456'}] as OrderType[],
+        unallocated: [] as OrderType[],
         inCar: [] as OrderType[],
         atGatherer: [] as OrderType[],
         inCart: [] as OrderType[]
