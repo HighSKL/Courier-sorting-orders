@@ -30,6 +30,7 @@ function Orders() {
 
         return(
             <div className={style['window']} key={element.name} draggable={false} 
+                
                 onDragOver={(e)=>dragOverHandler(e, element)}
                 onDragLeave={(e)=>dragLeaveHandler(e, element)}
                 // onDrop={(e)=>dropHandler(e, element)}
@@ -49,6 +50,7 @@ function Orders() {
     })
 
     const dragStartEventHandler = ( event: any, order: OrderType ) => {
+        alert(order)
         event.target.style.opacity = '50%' 
     }
 
@@ -79,8 +81,9 @@ function Orders() {
 
     const renderOrders = orders.unallocated.map((order)=>(
         <div className={style.order} style={{background: order.color}} draggable
-            onDragStart={(e)=>dragStartEventHandler(e, order)}
-            onDragEnd={(e)=>dragEndEventHandler(e, order)}
+            onTouchStart={(e)=>dragStartEventHandler(e, order)}
+            // onDragStart={(e)=>dragStartEventHandler(e, order)}
+            // onDragEnd={(e)=>dragEndEventHandler(e, order)}
         >
             <p>{order.orderNumber}</p>
         </div>
