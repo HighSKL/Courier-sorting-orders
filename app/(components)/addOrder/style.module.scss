@@ -22,6 +22,41 @@
     }
 }
 
+
+.windows_container{
+    width: 80%;
+    margin: 0 auto;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding-top: 20px;
+    gap: 15px;
+}
+
+.active{
+    opacity: 100% !important;
+    transform: scale(1.05);
+}
+
+
+.window{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    opacity: 30%;
+    background: #000;
+    padding: 12px 0;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.header__icon{
+    font-size: 30px;
+}
+
 .add-order-button{
     width: 40%;
     border: 0;
@@ -32,4 +67,18 @@
     margin: auto;
     margin-top: 30px;
     cursor: pointer;
+    &:disabled{
+        background-color: #ffffff79;
+    }
+}
+
+
+@media (max-width: 767px) {
+    .windows_container{
+        width: 80%;
+        margin: 0 auto;
+        height: auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
 }

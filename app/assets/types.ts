@@ -1,13 +1,14 @@
+import { OrdersType } from "./enums";
+
 export type OrderType = {
     id: number;
     color: string;
     orderNumber: string|number;
+    orderType: OrdersType
 }
 
 export type WindowType = {
     name: string;
-    icon: any;
-    setOrder: any;
-    ordersArr: OrderType[];
-    deleteValueFunc: any;
+    iconRender: any;
+    orderType: OrdersType;
 }

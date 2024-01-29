@@ -29,7 +29,3 @@ export default function withModalWindow<T extends injectedProps>(WrappedComponen
         );
     }
 }
-
-
-
-

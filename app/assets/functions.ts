@@ -1,11 +1,11 @@
 export const formatNumber = (phoneNumber: string) => {
 
-    if(phoneNumber.length > 10)
+    if (phoneNumber.length > 10)
         phoneNumber = phoneNumber.slice(0, 10)
 
     let formatNum = '+ 7 ('
-    
-    if(phoneNumber == '')
+
+    if (phoneNumber == '')
         return formatNum
 
     if (phoneNumber.length > 3) {
@@ -20,11 +20,11 @@ export const formatNumber = (phoneNumber: string) => {
             formatNum += cutPN.substring(3, 3) + '-'
         }
         if (phoneNumber.length >= 7 && phoneNumber.length < 8) {
-            const cutPN = phoneNumber.slice(6,8)
+            const cutPN = phoneNumber.slice(6, 8)
             formatNum += cutPN
         }
         else if (phoneNumber.length >= 8) {
-            const cutPN = phoneNumber.slice(6,8)
+            const cutPN = phoneNumber.slice(6, 8)
             formatNum += cutPN
             formatNum += cutPN.substring(6, 2) + '-'
         }
@@ -39,4 +39,4 @@ export const formatNumber = (phoneNumber: string) => {
     return formatNum
 }
 
-export const random = (max: number = 9999) => Math.floor(Math.random()*max)
+export const random = (max: number = 9999) => Math.floor(Math.random() * max)

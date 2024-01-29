@@ -6,3 +6,7 @@ body{
   background-color: rgba(0, 0, 0, 0.935);
   color: white;
 }
+
+.header__icon{
+  font-size: 44px;
+}

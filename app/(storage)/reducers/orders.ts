@@ -3,12 +3,7 @@ import { OrderType } from "@/app/assets/types";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    orders: {
-        unallocated: [] as OrderType[],
-        inCar: [] as OrderType[],
-        atGatherer: [] as OrderType[],
-        inCart: [] as OrderType[]
-    },
+    orders: [] as OrderType[],
     availableColors: ['#c82e2e', '#ef9117', '#7b9f38', '#239bb0']
 }
 
@@ -17,40 +12,30 @@ const reducer = createSlice({
     initialState,
     reducers: {
         addNewOrder: (state, action) => {
-
             const newOrder = {
                 id: random(999999),
                 color: state.availableColors[random(state.availableColors.length)],
-                orderNumber: action.payload
+                orderNumber: action.payload.orderNumber,
+                orderType: action.payload.orderType
             } as OrderType
 
-            state.orders.unallocated = [...state.orders.unallocated, newOrder]
+            state.orders = [...state.orders, newOrder]
         },
-        deleteValueFromUnallocated: (state, action) => {
-            state.orders.unallocated = [...state.orders.unallocated.filter((element)=>element.id != action.payload.id)]
+        changeOrderType: (state, action) => {
+            state.orders = [...state.orders.map((element)=>{
+                if(element.id == action.payload.id){
+                    const newElement = {
+                        ...element,
+                        orderType: action.payload.orderType
+                    }
+                    return newElement
+                } else
+                    return element                
+            })]
         },
-        deleteValueFromGatherer: (state, action) => {
-            state.orders.atGatherer = [...state.orders.atGatherer.filter((element:any)=>element.id != action.payload.id)]
-        },
-        deleteValueFromCar: (state, action) => {
-            state.orders.inCar = [...state.orders.inCar.filter((element:any)=>element.id != action.payload.id)]
-        },
-        deleteValueFromCart: (state, action) => {
-            state.orders.inCart = [...state.orders.inCart.filter((element:any)=>element.id != action.payload.id)]
-        },
-        addInCar: (state, action) => {
-            state.orders.inCar = [...state.orders.inCar, action.payload]
-        },
-        addAtGatherer: (state, action) => {
-            state.orders.atGatherer = [...state.orders.atGatherer, action.payload]
-        },
-        addInCart: (state, action) => {
-            state.orders.inCart = [...state.orders.inCart, action.payload]
-        }
     }
 })
 
-export const { addNewOrder, addInCar, addAtGatherer, addInCart, deleteValueFromUnallocated, deleteValueFromGatherer,
-    deleteValueFromCar, deleteValueFromCart } = reducer.actions
+export const { addNewOrder, changeOrderType } = reducer.actions
 
 export const OrderReducer = reducer.reducer
